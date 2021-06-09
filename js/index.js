@@ -29,7 +29,7 @@ var s_ladder= new Audio(url+"/sound/ladder.mp3");
 var s_l = new Array();
 var sn_la;
 
-//Jsontablet();
+Jsontablet();
 
 async function Jsons_l(i) {
   await fetch(url+"/board/"+i+"/s_l.json").then(function(response) {
@@ -51,9 +51,8 @@ async function Jsontablet() {
 }
 
 function pageload() {
-/*
-Jsontablet()
-setTimeout(function(){
+console.log();
+Jsontablet().then(setTimeout(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
     var tablet_preview = document.createElement("DIV");
@@ -64,7 +63,8 @@ setTimeout(function(){
       tablet_image = this.innerHTML;
     });
   }
-},1000);*/
+},1000));
+
   //
   for (var i = 0; i < 1; i++) {
     Jsons_l(i);
