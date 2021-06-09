@@ -51,8 +51,8 @@ async function Jsontablet() {
 }
 
 async function pageload() {
-//
-await Jsontablet().then(function(){
+
+Jsontablet().then(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
     var tablet_preview = document.createElement("DIV");
