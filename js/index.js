@@ -1,9 +1,9 @@
 var board_colour = "green";
 var tablet_colour = ["red", "blue", "green", "purple", "orange"];
 
-var url='https://shashi-79.github.io/snake-ladder_game';
+var url="https://shashi-79.github.io/snake-ladder_game";
 
-console.log("1");
+
 var places = new Array(100);
 var tablet_pos;
 var tablet_el;
@@ -23,14 +23,14 @@ var s_ladder= new Audio(url+"/sound/ladder.mp3");
 
 
 
-
+console.log("yy");
 
 
 var s_l = new Array();
 var sn_la;
-console.log("2");
-Jsontablet();
-console.log("3");
+
+//Jsontablet();
+
 async function Jsons_l(i) {
   await fetch(url+"/board/"+i+"/s_l.json").then(function(response) {
     response.text().then(function(text) {
@@ -49,10 +49,11 @@ async function Jsontablet() {
   });
 
 }
-console.log("4");
+
 function pageload() {
-console.log();
-Jsontablet().then(setTimeout(function(){
+
+Jsontablet()
+setTimeout(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
     var tablet_preview = document.createElement("DIV");
@@ -63,8 +64,7 @@ Jsontablet().then(setTimeout(function(){
       tablet_image = this.innerHTML;
     });
   }
-},1000));
-
+},1000);
   //
   for (var i = 0; i < 1; i++) {
     Jsons_l(i);
@@ -83,7 +83,6 @@ Jsontablet().then(setTimeout(function(){
 }
 
 function start() {
-console.log("5");
   // start with all setup
   total_player = document.getElementById("players").value;
   if (total_player > 0 && total_player < 10&& tablet_image=="00"  &&!board_ba_im) {
@@ -97,7 +96,6 @@ console.log("5");
 }
 
 function restart() {
-console.log("6");
   //start game with last setup
   document.getElementById("board").innerHTML = "";
   start();
@@ -105,7 +103,6 @@ console.log("6");
 }
 
 function startre() {
-console.log("7");
   //start setup at start
   document.getElementById("restart").style.visibility = "hidden";
   document.getElementById("start").style.visibility = "visible";
