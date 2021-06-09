@@ -22,14 +22,10 @@ var s_ladder= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/lad
 
 
 
-
-console.log("yy");
-
-
 var s_l = new Array();
 var sn_la;
 
-//Jsontablet();
+Jsontablet();
 
 async function Jsons_l(i) {
   await fetch("https://shashi-79.github.io/snake-ladder_game/board/"+i+"/s_l.json").then(function(response) {
@@ -52,8 +48,7 @@ async function Jsontablet() {
 
 function pageload() {
 
-Jsontablet()
-setTimeout(function(){
+Jsontablet().then(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
     var tablet_preview = document.createElement("DIV");
@@ -64,7 +59,7 @@ setTimeout(function(){
       tablet_image = this.innerHTML;
     });
   }
-},1000);
+});
   //
   for (var i = 0; i < 1; i++) {
     Jsons_l(i);
@@ -85,7 +80,7 @@ setTimeout(function(){
 function start() {
   // start with all setup
   total_player = document.getElementById("players").value;
-  if (total_player > 0 && total_player < 10&& tablet_image=="00"  &&!board_ba_im) {
+  if (total_player > 0 && total_player < 10&& tablet_image!="00"  &&board_ba_im) {
     player_dice_ = new Array(total_player);
     tablet_pos = new Array(total_player);
     tablet_el = new Array(total_player);
