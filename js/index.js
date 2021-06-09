@@ -81,6 +81,7 @@ function start() {
   // start with all setup
   total_player = document.getElementById("players").value;
   if (total_player > 0 && total_player < 10&& tablet_image!="00"  &&board_ba_im) {
+    board_ba_im=false;
     player_dice_ = new Array(total_player);
     tablet_pos = new Array(total_player);
     tablet_el = new Array(total_player);
@@ -186,7 +187,7 @@ function run(player, run_) {
         document.getElementById("restart").style.visibility = "visible";
         s_win.play()
         s_back.loop=false;
-        document.getElementById("player").innerHTML = "";
+        document.getElementById("players_dice").innerHTML = "";
         alert("Win"+player+"player \n restart");
       }
     },
