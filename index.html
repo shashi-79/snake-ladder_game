@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/index.css">
+  <script src="/js/index.js"></script>
+  <title>snake</title>
+</head>
+<body onload="pageload()">
+  <!--h6>snake-lader</h6-->
+  
+  <form id="start">
+  enter the player count:
+  </br>
+  <input type="number" id="players">
+  </input>
+  <div id="board_ui"></div>
+  <div id="tablet_ui"></div>
+  </br>
+  </br>
+  <input type="button" onclick="start()" value="start"></input>
+  </form>
+  
+  <form id="restart">
+  </br>
+  <input type="button" onclick="startre()" value="start"></input>
+  </br>
+  <input type="button" onclick="restart()" value="play again"></input>
+  </form>
+  
+  <div id="board"></div>
+  <div id="players_dice"></div>
+
+</body>
+</html>
