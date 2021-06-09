@@ -185,9 +185,11 @@ function run(player, run_) {
       if (tablet_pos[player] == 100) {
         //after win
         document.getElementById("restart").style.visibility = "visible";
+       
+        document.getElementById("players_dice").innerHTML="";
+      
         s_win.play()
         s_back.loop=false;
-        document.getElementById("players_dice").innerHTML = "";
         alert("Win"+player+"player \n restart");
       }
     },
