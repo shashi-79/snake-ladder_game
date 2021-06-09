@@ -50,7 +50,7 @@ async function Jsontablet() {
 
 }
 
-async function pageload() {
+function pageload() {
 /*
 Jsontablet()
 setTimeout(function(){
@@ -85,7 +85,7 @@ setTimeout(function(){
 function start() {
   // start with all setup
   total_player = document.getElementById("players").value;
-  if (total_player > 0 && total_player < 10&& tablet_image=="00"  &&board_ba_im) {
+  if (total_player > 0 && total_player < 10&& tablet_image=="00"  &&!board_ba_im) {
     player_dice_ = new Array(total_player);
     tablet_pos = new Array(total_player);
     tablet_el = new Array(total_player);
