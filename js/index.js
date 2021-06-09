@@ -1,6 +1,9 @@
 var board_colour = "green";
 var tablet_colour = ["red", "blue", "green", "purple", "orange"];
 
+var url='https://shashi-79.github.io/snake-ladder_game/';
+
+
 var places = new Array(100);
 var tablet_pos;
 var tablet_el;
@@ -10,12 +13,12 @@ var tablet_image="00";
 var tablet_image_arr;
 var board_ba_im;
 
-var s_run= new Audio("/sound/run.mp3");
-var s_back= new Audio("/sound/back.mp3");
+var s_run= new Audio(url+"/sound/run.mp3");
+var s_back= new Audio(url+"/sound/back.mp3");
 s_back.loop=true;
-var s_win= new Audio("/sound/win.mp3");
-var s_snake= new Audio("/sound/snake.mp3");
-var s_ladder= new Audio("/sound/ladder.mp3");
+var s_win= new Audio(url+"/sound/win.mp3");
+var s_snake= new Audio(url+"/sound/snake.mp3");
+var s_ladder= new Audio(url+"/sound/ladder.mp3");
 
 
 
@@ -29,7 +32,7 @@ var sn_la;
 Jsontablet();
 
 async function Jsons_l(i) {
-  await fetch("/board/"+i+"/s_l.json").then(function(response) {
+  await fetch(url+"/board/"+i+"/s_l.json").then(function(response) {
     response.text().then(function(text) {
       s_l[i] = JSON.parse(text);
     });
@@ -38,7 +41,7 @@ async function Jsons_l(i) {
 
 async function Jsontablet() {
   // body...
-  await fetch("/image/svg_tablet.json").then(function(response) {
+  await fetch(url+"/image/svg_tablet.json").then(function(response) {
 
     response.text().then(function(text) {
       tablet_image_arr = JSON.parse(text);
@@ -64,7 +67,7 @@ await Jsontablet().then(function(){
   //
   for (var i = 0; i < 1; i++) {
     var board_preview = new Image();
-    board_preview.src = '/board/'+i+'/board.jpg';
+    board_preview.src = url+'/board/'+i+'/board.jpg';
     board_preview.style.height = window.screen.width/2+"px";
     board_preview.style.width = window.screen.width/2+"px";
     board_preview.value = i;
