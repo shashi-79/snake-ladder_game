@@ -94,6 +94,7 @@ function start() {
 function restart() {
   //start game with last setup
   document.getElementById("board").innerHTML = "";
+  board_ba_im=true;
   start();
   document.getElementById("restart").style.visibility = "hidden";
 }
