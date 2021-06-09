@@ -1,0 +1,84 @@
+div{
+  background-size: cover;
+}
+body{
+  overflow: hidden;
+}
+#board {
+  z-index: 0;
+  display: grid;
+  height: 360px;
+  width: 360px;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+
+}
+
+
+
+.dice{
+  z-index: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 75px;
+}
+#players_dice {
+  z-index: 0;
+  height: 180px;
+  width: auto;
+  display: grid;
+  grid-row-gap: 3%;
+  grid-column-gap: 3%;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 30% 30% 30%;
+}
+
+
+form{
+  height: 20%;
+  z-index: 0;
+  top:10%;
+  left: 25%;
+  position: absolute;
+  width:50%;
+  text-align: center;
+  z-index: 10;
+}
+
+#start{
+  visibility: visible;
+}
+
+#restart{
+  
+  visibility: hidden;
+}
+
+
+input{
+  width: 100%;
+  height: 30%;
+}
+
+#board_ui{
+  height: 150px;
+  overflow: scroll;
+}
+#tablet_ui{
+  position:relative;
+  left: 40%;
+  height: 60px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x:hidden;
+}
+
+.svg{
+  z-index: 1;
+  height:50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
