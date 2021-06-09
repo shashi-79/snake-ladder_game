@@ -52,7 +52,8 @@ async function Jsontablet() {
 
 async function pageload() {
 
-Jsontablet().then(function(){
+Jsontablet()
+setTimeout(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
     var tablet_preview = document.createElement("DIV");
@@ -63,15 +64,15 @@ Jsontablet().then(function(){
       tablet_image = this.innerHTML;
     });
   }
-});
+},1000);
   //
   for (var i = 0; i < 1; i++) {
+    Jsons_l(i);
     var board_preview = new Image();
     board_preview.src = url+'/board/'+i+'/board.jpg';
     board_preview.style.height = window.screen.width/2+"px";
     board_preview.style.width = window.screen.width/2+"px";
     board_preview.value = i;
-    Jsons_l(i);
     board_preview.addEventListener("click", function() {
       document.getElementById("board").style.backgroundImage = 'url('+this.src+')';
       board_ba_im=true;
