@@ -1,7 +1,7 @@
 var board_colour = "green";
 var tablet_colour = ["red", "blue", "green", "purple", "orange"];
 
-var url="https://shashi-79.github.io/snake-ladder_game";
+//"https://shashi-79.github.io/snake-ladder_game";
 
 
 var places = new Array(100);
@@ -13,12 +13,12 @@ var tablet_image="00";
 var tablet_image_arr;
 var board_ba_im;
 
-var s_run= new Audio(url+"/sound/run.mp3");
-var s_back= new Audio(url+"/sound/back.mp3");
+var s_run= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/run.mp3");
+var s_back= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/back.mp3");
 s_back.loop=true;
-var s_win= new Audio(url+"/sound/win.mp3");
-var s_snake= new Audio(url+"/sound/snake.mp3");
-var s_ladder= new Audio(url+"/sound/ladder.mp3");
+var s_win= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/win.mp3");
+var s_snake= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/snake.mp3");
+var s_ladder= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/ladder.mp3");
 
 
 
@@ -32,7 +32,7 @@ var sn_la;
 //Jsontablet();
 
 async function Jsons_l(i) {
-  await fetch(url+"/board/"+i+"/s_l.json").then(function(response) {
+  await fetch("https://shashi-79.github.io/snake-ladder_game/board/"+i+"/s_l.json").then(function(response) {
     response.text().then(function(text) {
       s_l[i] = JSON.parse(text);
     });
@@ -41,7 +41,7 @@ async function Jsons_l(i) {
 
 async function Jsontablet() {
   // body...
-  await fetch(url+"/image/svg_tablet.json").then(function(response) {
+  await fetch("https://shashi-79.github.io/snake-ladder_game/image/svg_tablet.json").then(function(response) {
 
     response.text().then(function(text) {
       tablet_image_arr = JSON.parse(text);
@@ -69,7 +69,7 @@ setTimeout(function(){
   for (var i = 0; i < 1; i++) {
     Jsons_l(i);
     var board_preview = new Image();
-    board_preview.src = url+'/board/'+i+'/board.jpg';
+    board_preview.src = 'https://shashi-79.github.io/snake-ladder_game/board/'+i+'/board.jpg';
     board_preview.style.height = window.screen.width/2+"px";
     board_preview.style.width = window.screen.width/2+"px";
     board_preview.value = i;
