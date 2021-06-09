@@ -1,7 +1,7 @@
 var board_colour = "green";
 var tablet_colour = ["red", "blue", "green", "purple", "orange"];
 
-var url='https://shashi-79.github.io/snake-ladder_game/';
+var url='https://shashi-79.github.io/snake-ladder_game';
 
 
 var places = new Array(100);
@@ -29,7 +29,7 @@ var s_ladder= new Audio(url+"/sound/ladder.mp3");
 var s_l = new Array();
 var sn_la;
 
-Jsontablet();
+//Jsontablet();
 
 async function Jsons_l(i) {
   await fetch(url+"/board/"+i+"/s_l.json").then(function(response) {
