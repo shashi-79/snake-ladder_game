@@ -107,7 +107,7 @@ function start() {
   // start with all setup
   total_player = document.getElementById("players").value;
   if (total_player > 0 && total_player < 10&& tablet_image!="00"  &&board_ba_im) {
-//    board_ba_im=false;
+    board_ba_im=false;
     player_dice_ = new Array(total_player);
     tablet_pos = new Array(total_player);
     tablet_el = new Array(total_player);
@@ -119,6 +119,7 @@ function start() {
 
 function restart() {
   //start game with last setup
+  board_ba_im=true;
   document.getElementById("board").innerHTML = "";
   start();
   document.getElementById("restart").style.visibility = "hidden";
