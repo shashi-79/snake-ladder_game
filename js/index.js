@@ -213,7 +213,7 @@ function run(player, run_) {
       if (tablet_pos[player] == 100) {
         //after win
         document.getElementById("restart").style.visibility = "visible";
-       
+        chance=0;
         document.getElementById("players_dice").innerHTML="";
       
         s_win.play()
