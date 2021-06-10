@@ -7,6 +7,8 @@ body{
 #board {
   z-index: 0;
   display: grid;
+  height: 360px;
+  width: 360px;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 
@@ -23,6 +25,7 @@ body{
   font-size: 75px;
 }
 #players_dice {
+  position: absolute;
   z-index: 0;
   height: 180px;
   width: auto;
