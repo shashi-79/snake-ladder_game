@@ -3,14 +3,10 @@ div{
 }
 body{
   overflow: hidden;
-height:auto;
-width:100%;
 }
 #board {
   z-index: 0;
   display: grid;
-  height: auto;
-  width: 100%;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 
