@@ -20,7 +20,6 @@ var s_win= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/win.mp
 var s_snake= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/snake.mp3");
 var s_ladder= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/ladder.mp3");
 
-window.addEventListener("resize",manage_size);
 
 
 function manage_size() {
@@ -74,6 +73,7 @@ async function Jsontablet() {
 function pageload() {
 
 manage_size();
+window.addEventListener("resize",manage_size);
 Jsontablet().then(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
