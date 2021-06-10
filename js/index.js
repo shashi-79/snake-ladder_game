@@ -20,6 +20,31 @@ var s_win= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/win.mp
 var s_snake= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/snake.mp3");
 var s_ladder= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/ladder.mp3");
 
+window.addEventListener("resize",manage_size);
+
+
+function manage_size() {
+  // body...
+  var w=window.innerWidth;
+  var h=window.innerHeight;
+  if((w&&h)>0){
+    if (w>h) {
+      w=h;
+      document.getElementById("players_dice").style.setProperty('top','8px');
+      document.getElementById("players_dice").style.setProperty('left',h+15+'px');
+    }else{
+      h=w;
+      document.getElementById("players_dice").style.setProperty('top',h+15+'px');
+      document.getElementById("players_dice").style.setProperty('left','10px');
+    }
+
+  document.getElementById("board").style.height=h+"px";
+  document.getElementById("board").style.width=w+"px";
+  }
+  
+}
+
+
 
 
 var s_l = new Array();
@@ -48,6 +73,7 @@ async function Jsontablet() {
 
 function pageload() {
 
+manage_size();
 Jsontablet().then(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
@@ -81,7 +107,7 @@ function start() {
   // start with all setup
   total_player = document.getElementById("players").value;
   if (total_player > 0 && total_player < 10&& tablet_image!="00"  &&board_ba_im) {
-    board_ba_im=false;
+//    board_ba_im=false;
     player_dice_ = new Array(total_player);
     tablet_pos = new Array(total_player);
     tablet_el = new Array(total_player);
@@ -94,7 +120,6 @@ function start() {
 function restart() {
   //start game with last setup
   document.getElementById("board").innerHTML = "";
-  board_ba_im=true;
   start();
   document.getElementById("restart").style.visibility = "hidden";
 }
@@ -112,7 +137,7 @@ function setup() {
   for (var i = 0; i < 100; i++) {
     places[i] = document.createElement("DIV");
     document.getElementById("board").append(places[i]);
-    places[i].innerHTML = coordinate_value(i);
+  //  places[i].innerHTML = coordinate_value(i);
   }
 
 
@@ -124,6 +149,7 @@ function setup() {
     player_dice_[i] = document.createElement("BUTTON");
     document.getElementById("players_dice").append(player_dice_[i]);
     player_dice_[i].className = "dice";
+    player_dice_[i].innerHTML="0";
     //addEventListener in dices of each player
     player_dice_[i].addEventListener("click", function() {
       //after touch the dice check player Number to play
@@ -242,7 +268,7 @@ function update_tablet_pos() {
 
   for (var j = 0; j < tablet_pos.length; j++) {
 
-    tablet_el[j].style.top = (((document.getElementById("board").getBoundingClientRect().height/10)*(parseInt(value_coordinate(tablet_pos[j])/10))+5)+"px");
+    tablet_el[j].style.top = (((document.getElementById("board").getBoundingClientRect().height/10)*(parseInt(value_coordinate(tablet_pos[j])/10))-2)+"px");
     tablet_el[j].style.left = ((document.getElementById("board").getBoundingClientRect().width/10)*(parseInt(value_coordinate(tablet_pos[j])%10))+j*2+"px");
   }
 }
