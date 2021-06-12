@@ -19,7 +19,7 @@ s_back.loop=true;
 var s_win= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/win.mp3");
 var s_snake= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/snake.mp3");
 var s_ladder= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/ladder.mp3");
-
+var board_no_=2;
 
 
 function manage_size() {
@@ -87,7 +87,7 @@ Jsontablet().then(function(){
   }
 });
   //
-  for (var i = 0; i < 1; i++) {
+  for (var i = 0; i < board_no_; i++) {
     Jsons_l(i);
     var board_preview = new Image();
     board_preview.src = 'https://shashi-79.github.io/snake-ladder_game/board/'+i+'/board.jpg';
