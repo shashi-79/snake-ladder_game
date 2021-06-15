@@ -1,25 +1,28 @@
 var board_colour = "green";
-var tablet_colour = ["red", "blue", "green", "purple", "orange"];
-
-//"https://shashi-79.github.io/snake-ladder_game";
-
+var tablet_colour = ["red", "blue", "green", "purple", "orange","silver","gold","yellow","brown"];
+var tablet_colour = ["red", "blue", "green", "purple", "orange","silver","gold","yellow","brown"];
+//var url="";
+var url="https://shashi-79.github.io/snake-ladder_game";
+var total_board_image=1;
+var computer=false;
 
 var places = new Array(100);
 var tablet_pos;
 var tablet_el;
 var total_player;
 var player_dice_;
-var tablet_image="00";
+var tablet_image_no="00";
 var tablet_image_arr;
 var board_ba_im;
 
-var s_run= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/run.mp3");
-var s_back= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/back.mp3");
+var s_run= new Audio(url+"/sound/run.mp3");
+var s_back= new Audio(url+"/sound/back.mp3");
 s_back.loop=true;
-var s_win= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/win.mp3");
-var s_snake= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/snake.mp3");
-var s_ladder= new Audio("https://shashi-79.github.io/snake-ladder_game/sound/ladder.mp3");
-var board_no_=2;
+var s_win= new Audio(url+"/sound/win.mp3");
+var s_snake= new Audio(url+"/sound/snake.mp3");
+var s_ladder= new Audio(url+"/sound/ladder.mp3");
+
+window.addEventListener("resize",manage_size);
 
 
 function manage_size() {
@@ -52,7 +55,7 @@ var sn_la;
 Jsontablet();
 
 async function Jsons_l(i) {
-  await fetch("https://shashi-79.github.io/snake-ladder_game/board/"+i+"/s_l.json").then(function(response) {
+  await fetch(url+"/board/"+i+"/s_l.json").then(function(response) {
     response.text().then(function(text) {
       s_l[i] = JSON.parse(text);
     });
@@ -61,7 +64,7 @@ async function Jsons_l(i) {
 
 async function Jsontablet() {
   // body...
-  await fetch("https://shashi-79.github.io/snake-ladder_game/image/svg_tablet.json").then(function(response) {
+  await fetch(url+"/image/svg_tablet.json").then(function(response) {
 
     response.text().then(function(text) {
       tablet_image_arr = JSON.parse(text);
@@ -73,24 +76,24 @@ async function Jsontablet() {
 function pageload() {
 
 manage_size();
-window.addEventListener("resize",manage_size);
 Jsontablet().then(function(){
   
   for (var i = 0; i < tablet_image_arr.length; i++) {
     var tablet_preview = document.createElement("DIV");
     tablet_preview.className="svg";
-    tablet_preview.innerHTML = tablet_image_arr[i];
+    tablet_preview.value=i;
+    tablet_preview.innerHTML = tablet_image_arr[i][0]+tablet_colour[i]+tablet_image_arr[i][1]+tablet_colour[i]+tablet_image_arr[i][2];
     document.getElementById("tablet_ui").appendChild(tablet_preview);
     tablet_preview.addEventListener("click", function() {
-      tablet_image = this.innerHTML;
+      tablet_image_no =this.value;
     });
   }
 });
   //
-  for (var i = 0; i < board_no_; i++) {
+  for (var i = 0; i < total_board_image; i++) {
     Jsons_l(i);
     var board_preview = new Image();
-    board_preview.src = 'https://shashi-79.github.io/snake-ladder_game/board/'+i+'/board.jpg';
+    board_preview.src = url+"/board/"+i+"/board.jpg";
     board_preview.style.height = window.screen.width/2+"px";
     board_preview.style.width = window.screen.width/2+"px";
     board_preview.value = i;
@@ -106,12 +109,18 @@ Jsontablet().then(function(){
 function start() {
   // start with all setup
   total_player = document.getElementById("players").value;
-  if (total_player > 0 && total_player < 10&& tablet_image!="00"  &&board_ba_im) {
+  if (total_player > 0 && total_player < 10&& tablet_image_no!="00"  &&board_ba_im) {
+  if (total_player ==1) {
+    computer=true;
+    total_player=2;
+}
+    
     board_ba_im=false;
     player_dice_ = new Array(total_player);
     tablet_pos = new Array(total_player);
     tablet_el = new Array(total_player);
     document.getElementById("start").style.visibility = "hidden";
+
     setup();
     s_back.play();
   }
@@ -152,6 +161,7 @@ function setup() {
     player_dice_[i].className = "dice";
     player_dice_[i].innerHTML="0";
     //addEventListener in dices of each player
+    if(!computer||i!=1){
     player_dice_[i].addEventListener("click", function() {
       //after touch the dice check player Number to play
       for (var j = 0; j < player_dice_.length; j++) {
@@ -162,11 +172,17 @@ function setup() {
       }
     });
 
+
+}
+
     //create and set the tablet for each player in board of snake ladder
     tablet_el[i] = document.createElement("DIV");
     document.getElementById("board").append(tablet_el[i]);
     //set svg image in innerHTML of tablet_el
-    tablet_el[i].innerHTML = tablet_image;
+
+    tablet_el[i].innerHTML = tablet_image_arr[tablet_image_no][0]+tablet_colour[i]+tablet_image_arr[tablet_image_no][1]+tablet_colour[i]+tablet_image_arr[tablet_image_no][2];
+    
+    
     //set height width and position nature in css
     tablet_el[i].style.setProperty('position','absolute');
     tablet_el[i].style.setProperty('opacity','0.85');
@@ -213,12 +229,17 @@ function run(player, run_) {
       if (tablet_pos[player] == 100) {
         //after win
         document.getElementById("restart").style.visibility = "visible";
-        chance=0;
+       
         document.getElementById("players_dice").innerHTML="";
       
         s_win.play()
         s_back.loop=false;
-        alert("Win"+player+"player \n restart");
+        if(computer&&player==1){
+        alert("computer is the winner of this match \n good luck next time");
+          
+        } else{
+        alert("Player"+(player+1)+"is the winner of this match \n restart");
+        }
       }
     },
       100*i,
@@ -261,6 +282,9 @@ function snake_ladder(player) {
       }
     }
   }
+if(computer){
+  play(1);
+}
 
 }
 
