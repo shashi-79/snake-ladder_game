@@ -92,8 +92,14 @@ Jsontablet().then(function(){
   //
   for (var i = 0; i < total_board_image; i++) {
     Jsons_l(i);
+    if(i<2){
+      var type="jpg"
+    }else{
+      var type="png"
+      
+    }
     var board_preview = new Image();
-    board_preview.src = url+"/board/"+i+"/board."+(i<2)?"jpg":"png";
+    board_preview.src = url+"/board/"+i+"/board."+type;
     board_preview.style.height = window.screen.width/2+"px";
     board_preview.style.width = window.screen.width/2+"px";
     board_preview.value = i;
