@@ -73,7 +73,7 @@ async function Jsontablet() {
 
 }
 
-function pageload() {
+async function pageload() {
 
 manage_size();
 Jsontablet().then(function(){
@@ -91,7 +91,7 @@ Jsontablet().then(function(){
 });
   //
   for (var i = 0; i < total_board_image; i++) {
-    Jsons_l(i);
+  await  Jsons_l(i);
     if(i<2){
       var type="jpg"
     }else{
