@@ -3,7 +3,7 @@ var tablet_colour = ["red", "blue", "green", "purple", "orange","silver","gold",
 var tablet_colour = ["red", "blue", "green", "purple", "orange","silver","gold","yellow","brown"];
 //var url="";
 var url="https://shashi-79.github.io/snake-ladder_game";
-var total_board_image=1;
+var total_board_image=15;
 var computer=false;
 
 var places = new Array(100);
