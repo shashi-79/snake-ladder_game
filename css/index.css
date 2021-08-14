@@ -11,7 +11,7 @@ body{
   width: 360px;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-
+margin: 50px;
 }
 
 
