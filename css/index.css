@@ -7,11 +7,10 @@ body{
 #board {
   z-index: 0;
   display: grid;
-  height: 360px;
-  width: 360px;
+//  height: 360px;
+  width: 100%;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-margin: 50px;
 }
 
 
