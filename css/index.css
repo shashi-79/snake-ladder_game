@@ -79,6 +79,8 @@ input{
   z-index: 1;
   height:50px;
   display:flex;
+  margin: auto;
+  padding: auto;
   align-items: center;
   text-align: center;
   justify-content: center;
